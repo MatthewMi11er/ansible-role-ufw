@@ -1,4 +1,16 @@
 ---
 # file: ufw/meta/main.yml
 
-version: 1.0.0
+galaxy_info:
+  author: "Matthew Miller"
+  description: Base UFW (firewall) setup
+  company:
+  license: license (MIT)
+  min_ansible_version: 1.2
+  platforms:
+    - name: Ubuntu
+      versions:
+        - trusty
+  categories:
+    - networking
+dependencies: []

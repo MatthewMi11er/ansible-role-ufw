@@ -1,0 +1,4 @@
+---
+# file: ufw/defautls/main.yml
+
+ufw_logging: "on" #off

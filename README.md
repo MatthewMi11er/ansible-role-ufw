@@ -10,7 +10,7 @@ Specific ports should be opened by the roles that need them.
 
 None.
 
-_Note_: This role has only be tested on Ubuntu. If you want to extend it feel free to contribute.
+_Note_: This role has only been tested on Ubuntu. If you want to extend it feel free to contribute.
 
 ## Role Variables
 
@@ -25,13 +25,13 @@ None.
 ```YML
 - hosts: servers
   roles:
-    - { role: matthewmi11er.ufw }
+    - { role: MatthewMi11er.ufw }
 ```
 or
 ```YML
 #meta
 dependencies
-  - { role: matthewmi11er.ufw }
+  - { role: MatthewMi11er.ufw }
 ```
 ## License
 

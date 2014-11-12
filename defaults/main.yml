@@ -2,3 +2,6 @@
 # file: ufw/defautls/main.yml
 
 ufw_logging: "on" #off
+ufw_state: "Enabled"
+ufw_ssh_allow: true
+ufw_ssh_port: '{{ ansible_ssh_port | default("22") }}'

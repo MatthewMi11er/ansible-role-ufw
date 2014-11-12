@@ -1,0 +1,20 @@
+---
+# ufw/tasks/ssh.yml
+
+- name: Copy App Profile
+  template: >
+    src=etc_ufw_applications_ssh
+    dest=/etc/ufw/applications/ssh
+    owner=root
+    group=root
+    mode=0644
+  register: ufw_app_profile
+  
+- name: Update App  Profile
+  cmd: ufw app update AltSSH
+  when: ufw_app_profile|changed
+
+- name: Set SSH rule
+  ufw: >
+    rule=allow
+    name=AltSSH

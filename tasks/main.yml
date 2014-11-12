@@ -9,11 +9,10 @@
     - ufw
 
 - name: Allow SSH
-  ufw: >
-    rule=allow
-    port={{ ansible_ssh_port | default('22') }}
+  include: ssh.yml
+  when: ufw_ssh_allow
 
-- name: Enable ufw
+- name: Set UFW State
   ufw: >
-    state=enabled
+    state={{ ufw_state }}
     logging={{ ufw_logging }}

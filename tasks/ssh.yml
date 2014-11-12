@@ -4,7 +4,7 @@
 - name: Copy App Profile
   template: >
     src=etc_ufw_applications_ssh
-    dest=/etc/ufw/applications/ssh
+    dest=/etc/ufw/applications.d/ssh
     owner=root
     group=root
     mode=0644

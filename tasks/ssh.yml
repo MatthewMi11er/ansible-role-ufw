@@ -3,8 +3,8 @@
 
 - name: Copy App Profile
   template: >
-    src=etc_ufw_applications_ssh
-    dest=/etc/ufw/applications.d/ssh
+    src=etc_ufw_applications_altssh
+    dest=/etc/ufw/applications.d/AltSSH
     owner=root
     group=root
     mode=0644

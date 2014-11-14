@@ -2,3 +2,8 @@
 # file: ufw/defautls/main.yml
 
 ufw_logging: "on" #off
+ufw_state: "enabled"
+ufw_ssh_allow: true
+#awk '/^Port\s+([0-9])+/{print $3}' test 
+#sed -n -e 's/^\Port\s\+\([0-9]\+\).*/\1/pIi' test 
+

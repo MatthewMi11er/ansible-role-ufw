@@ -1,0 +1,24 @@
+---
+# ufw/tasks/ssh.yml
+
+- name: Get Current SSH port
+  command: 'sed -n -e "s/^\Port\s\+\([0-9]\+\).*/\1/pIi" /etc/ssh/sshd_config'
+  register: ufw_current_ssh_port
+
+- name: Copy App Profile
+  template: >
+    src=etc_ufw_applications_altssh
+    dest=/etc/ufw/applications.d/AltSSH
+    owner=root
+    group=root
+    mode=0644
+  register: ufw_app_profile
+  
+- name: Update App  Profile
+  command: ufw app update AltSSH
+  when: ufw_app_profile|changed
+
+- name: Set SSH rule
+  ufw: >
+    rule=allow
+    name=AltSSH

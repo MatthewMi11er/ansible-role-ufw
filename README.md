@@ -1,7 +1,5 @@
 # Ansible Role: UFW
 
-[![Build Status](https://travis-ci.org/MatthewMi11er/ansible-role-ufw.svg?branch=master)](https://travis-ci.org/MatthewMi11er/ansible-role-ufw)
-
 Install and do a base configuration of a firewall using ___UFW___
 
 Specific ports should be opened by the roles that need them.

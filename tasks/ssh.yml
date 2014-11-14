@@ -1,6 +1,10 @@
 ---
 # ufw/tasks/ssh.yml
 
+- name: Get Current SSH port
+  command: "sed -n -e 's/^\Port\s\+\([0-9]\+\).*/\1/pIi' /etc/ssh/sshd_config"
+  register: ufw_current_ssh_port
+
 - name: Copy App Profile
   template: >
     src=etc_ufw_applications_altssh

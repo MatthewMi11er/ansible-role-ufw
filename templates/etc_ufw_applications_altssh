@@ -1,4 +1,4 @@
 [AltSSH]
 title=Secure shell server, an rshd replacement
 description=OpenSSH is a free implementation of the Secure Shell protocol.
-ports={{ ufw_ssh_port}}/tcp
+ports={{ ufw_current_ssh_port.stdout }}/tcp

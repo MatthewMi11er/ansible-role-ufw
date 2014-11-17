@@ -4,6 +4,7 @@
 - name: Get Current SSH port
   command: 'sed -n -e "s/^\Port\s\+\([0-9]\+\).*/\1/pIi" /etc/ssh/sshd_config'
   register: ufw_current_ssh_port
+  changed_when: false
 
 - name: Copy App Profile
   template: >

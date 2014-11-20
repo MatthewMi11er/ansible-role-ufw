@@ -5,21 +5,23 @@
   command: 'sed -n -e "s/^\Port\s\+\([0-9]\+\).*/\1/pIi" /etc/ssh/sshd_config'
   register: ufw_current_ssh_port
   changed_when: false
+  tags:
+    - ufw
 
 - name: Copy App Profile
-  template: >
-    src=etc_ufw_applications_altssh
-    dest=/etc/ufw/applications.d/AltSSH
-    owner=root
-    group=root
-    mode=0644
-  register: ufw_app_profile
+  include: app_profile.yml
+  tags:
+    - ufw
   
 - name: Update App  Profile
   command: ufw app update AltSSH
-  when: ufw_app_profile|changed
+  when: ufw_app_profile_title|changed or ufw_app_profile_description|changed or ufw_app_profile_port|changed
+  tags:
+    - ufw
 
 - name: Set SSH rule
   ufw: >
     rule=allow
     name=AltSSH
+  tags:
+    - ufw

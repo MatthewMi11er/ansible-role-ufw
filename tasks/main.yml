@@ -7,12 +7,18 @@
     state=latest
   with_items:
     - ufw
+  tags:
+    - ufw
 
 - name: Allow SSH
   include: ssh.yml
   when: ufw_ssh_allow
+  tags:
+    - ufw
 
 - name: Set UFW State
   ufw: >
     state={{ ufw_state }}
     logging={{ ufw_logging }}
+  tags:
+    - ufw

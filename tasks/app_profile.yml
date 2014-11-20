@@ -1,0 +1,35 @@
+---
+# ufw/tasks/app_profile.yml
+
+- name: Set AltSSH Title 
+  ini_file: >
+    dest=/etc/ufw/applications.d/AltSSH
+    section=AltSSH
+    option=title
+    value='Secure shell server, an rshd replacement'
+    backup=no
+  register: ufw_app_profile_title
+  tags:
+    - ufw
+    
+- name: Set AltSSH Description 
+  ini_file: >
+    dest=/etc/ufw/applications.d/AltSSH
+    section=AltSSH
+    option=description
+    value='OpenSSH is a free implementation of the Secure Shell protocol.'
+    backup=no
+  register: ufw_app_profile_description
+  tags:
+    - ufw
+
+- name: Set AltSSH Port
+  ini_file: >
+    dest=/etc/ufw/applications.d/AltSSH
+    section=AltSSH
+    option=ports
+    value='{{ ufw_current_ssh_port.stdout }}/tcp'
+    backup=no
+  register: ufw_app_profile_port
+  tags:
+    - ufw

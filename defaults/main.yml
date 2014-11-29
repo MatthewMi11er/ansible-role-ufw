@@ -4,6 +4,8 @@
 ufw_logging: "on" #off
 ufw_state: "enabled"
 ufw_ssh_allow: true
-#awk '/^Port\s+([0-9])+/{print $3}' test 
-#sed -n -e 's/^\Port\s\+\([0-9]\+\).*/\1/pIi' test 
 
+# Use flag to notify other tasks not to change UFW settings for web traffic
+# Ports must be set mannually or in a designated task
+# Other Roles must be set to check for this flag
+ufw_override_web: false

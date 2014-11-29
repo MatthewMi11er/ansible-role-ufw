@@ -12,7 +12,6 @@ _Note_: This role has only been tested on Ubuntu. If you want to extend it feel 
 
 ## Role Variables
 
-- ansible\_ssh\_port (___22___)
 - ufw\_logging (___on___|off)
 
 ## Dependencies
@@ -23,13 +22,13 @@ None.
 ```YML
 - hosts: servers
   roles:
-    - { role: MatthewMi11er.ufw }
+    - MatthewMi11er.ufw
 ```
 or
 ```YML
 #meta
 dependencies
-  - { role: MatthewMi11er.ufw }
+  - MatthewMi11er.ufw
 ```
 ## License
 
